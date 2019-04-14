@@ -1,0 +1,36 @@
+<html>
+<head>
+
+</head>
+<body>
+        
+    <form action="getData" method="POST">
+        {% csrf_token %}
+        <label>Size : </label>
+        <input type="number" name="size" value="null"/> <br/>
+        <label>Colour : </label>
+        <input type="text" name="colour" value="null"/> <br/>
+        <label>Bill : </label>
+        <input type="text" name="bill" value="null"/> <br/>
+        <label> Head : </label>
+        <input type="text" name="head" value="null"/> <br/>
+        <label> Upperparts : </label>
+        <input type="text" name="upperparts" value="null"/> <br/>
+        <label> Underparts : </label>
+        <input type="text" name="underparts" value="null"/> <br/>
+        <label>Upperwing Coverts : </label>
+        <input type="text" name="upperwingCoverts" value="null"/> <br/>
+        <label>Underwing Coverts : </label>
+        <input type="text" name="underwingCoverts" value="null"/> <br/>
+        <label>Undertail Coverts : </label>
+        <input type="text" name="undertailCoverts" value="null"/> <br/>
+        <label>Legs : </label>
+        <input type="text" name="legs" value="null"/> <br/>
+        <label>Neck : </label>
+        <input type="text" name="neck" value="null"/> <br/>
+        <label>Breast : </label>
+        <input type="text" name="breast" value="null"/> <br/>
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+</body>
+</html>

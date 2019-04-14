@@ -1,0 +1,126 @@
+<!--  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+      height: 100vh;
+      /* position : ; */
+    }
+
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .main{
+      text-align: center;
+      float : left;
+      padding : 0.5%;
+    }
+    /* HIDE RADIO */
+    [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
+
+    /* IMAGE STYLES */
+    [type=radio] + img {
+    cursor: pointer;
+    }
+
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+    outline: 2px solid #f00;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">IBIS</a>
+        </div>
+    </div>
+    </nav>
+   
+    <form action="description" method="POST">
+            
+        {% csrf_token %}
+        {% for i in obj %}
+            <div class="main">
+                <label>
+                <input type="radio" name="name" value="{{i.id}}">
+                <img src="{{i.image.url}}" width="200" height="200" value="{{i.id}}" onclick="clickImage()"/></br>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#{{i.id}}"></button><h6>{{i.name}}</h6>
+            </label>
+            </div>
+            <div class="modal fade" id="{{i.id}}" role="dialog">
+                <div class="modal-dialog">
+      
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header" style="background-image:url({{i.image.url}});width: 599px;height: 450px;background-size: cover" >
+                      <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <h1>{{i.name}}</h1>
+                        <p>{{i.size}} cm</p>
+                        <hr>
+                        <h3>IDENTIFICATION : </h3>
+                        <p>Colour : {{i.colour}}</p>
+                        <p>{{i.info}}</p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+        {% endfor %}
+        <div>
+        <!-- <br/> -->
+        
+        
+        
+    </div>
+    </form>
+
+    <!-- <script type="text/javascript">
+        function clickImage(){
+            document.getElementsById('jsform').submit();
+        }
+      </script> -->
+</body>
+</html>
