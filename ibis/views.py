@@ -209,8 +209,8 @@ def compression(request):
 			    #     cv2.imwrite("C:/Users/meet3/Desktop/project_ibis/media/project_ibis/input_images/comp"+str(firstq)+str(secondq)+".jpg",image,[int(cv2.IMWRITE_JPEG_QUALITY),secondq])
     os.remove('C:/Users/meet3/Desktop/project_ibis/media/project_ibis/input_images/'+ myfile.name)
 
-    graph = tf.get_default_graph()
-    network = tf.keras.models.load_model('model/project_ibis/model/history.h5')
+    # graph = tf.get_default_graph()
+    # network = tf.keras.models.load_model('model/project_ibis/model/history.h5')
     
     # # with graph.as_default():
     # # size = 150,150
@@ -221,13 +221,13 @@ def compression(request):
     # with graph.as_default():
     #     value = network.predict(image)
     #     value = value.reshape((150,150))
-    #     value = value.tolist()
+    # #     value = value.tolist()
 
-    network.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
+    # network.compile(loss='binary_crossentropy',optimizer='rmsprop',metrics=['accuracy'])
 
-    img = cv2.imread('C:/Users/meet3/Desktop/project_ibis/media/project_ibis/input_images/'+fname+' compressed.jpg')
-    img = cv2.resize(img,(150,150))
-    img = np.reshape(img,[1,150,150,3])
-    classes = network.predict(img)
-    classes = classes.tolist()
-    return HttpResponse (classes)
+    # img = cv2.imread('C:/Users/meet3/Desktop/project_ibis/media/project_ibis/input_images/'+fname+' compressed.jpg')
+    # img = cv2.resize(img,(150,150))
+    # img = np.reshape(img,[1,150,150,3])
+    # classes = network.predict(img)
+    # classes = classes.tolist()
+    return HttpResponse ("success")
