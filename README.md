@@ -1,7 +1,7 @@
 # IBIS
 <aim of project>
 
-lease install django, pip3 ,python3 and python3-devel packages
+Please install django, pip3 ,python3 and python3-devel packages
 
 After cloning the repo go to IBIS folder.
 use below command to install all required modules 
