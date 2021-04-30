@@ -90,7 +90,7 @@ requests-ftp==0.3.1
 requests-oauthlib==1.3.0
 rhnlib==2.8.6
 rpm==4.14.2
-rsa==4.0
+rsa==4.7
 schedutils==0.6
 scipy==1.4.1
 sepolicy==1.1
